@@ -1,0 +1,38 @@
+Options -Indexes
+
+RewriteEngine on
+
+#TODO CONTROLLERS MUST BE PLACED IN FILE ^site/controller
+
+#homepage
+RewriteRule ^$ site/controller/index.php?action=home [QSA,L]
+
+#login related
+RewriteRule ^login/?$ site/controller/index.php?action=login [QSA,L]
+RewriteRule ^login_submit/?$ site/controller/index.php?action=loginSubmit [QSA,L]
+RewriteRule ^login_success/?$ site/controller/index.php?action=loginSuccess [QSA,L]
+RewriteRule ^logout/?$ site/controller/index.php?action=logout [QSA,L]
+
+#person/location add
+RewriteRule ^add_location/confirm?$ site/controller/index.php?action=confirm_loc [QSA,L]
+RewriteRule ^add_location/?$ site/controller/index.php?action=add_loc [QSA,L]
+RewriteRule ^add_person/confirm?$ site/controller/index.php?action=confirm_person [QSA,L]
+RewriteRule ^add_person/?$ site/controller/index.php?action=add_person [QSA,L]
+
+#display/edit people
+#name format is FIRST_LAST
+RewriteRule ^people/(\w+)/edit_complete$ site/controller/index.php?action=edit_person_complete&name=$1 [QSA,L]
+RewriteRule ^people/(\w+)/edit$ site/controller/index.php?action=edit_person&name=$1 [QSA,L]
+RewriteRule ^people/(\w+)/?$ site/controller/index.php?action=view_person&name=$1 [QSA,L]
+
+#display/edit locations
+RewriteRule ^locations/(\w+)/edit_complete$ site/controller/index.php?action=edit_loc_complete&name=$1 [QSA,L]
+RewriteRule ^locations/(\w+)/edit$ site/controller/index.php?action=edit_loc&name=$1 [QSA,L]
+RewriteRule ^locations/(\w+)/?$ site/controller/index.php?action=view_loc&name=$1 [QSA,L]
+
+#display list of locations/persons
+RewriteRule ^locations/?$ site/controller/index.php?action=list_locations [QSA,L]
+RewriteRule ^people/?$ site/controller/index.php?action=list_people [QSA,L]
+
+
+
