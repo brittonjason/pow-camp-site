@@ -142,10 +142,9 @@ class Index{
 	
 	public function add_person(){
 		// can not add if not logged in
-		// TODO uncomment this
-		// if(!isset($_SESSION['username'])){
-		// 	header('Location: '.BASE_URL);
-		// }
+		if(!isset($_SESSION['username'])){
+			header('Location: '.BASE_URL);
+		}
 		
 		$pageTitle = "Add New Person";
 		include_once SYSTEM_PATH.'/view/header.tpl';
