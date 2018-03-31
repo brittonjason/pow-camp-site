@@ -20,13 +20,16 @@
         <ul class="navbar-nav mr-auto">
           <?php if(isset($_SESSION['username'])): ?>
             <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>">People</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/people/">People</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/locations/">Locations</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/add_person/">Add Person</a></li>
             <li class="nav-item">Logged in as <strong><?= $_SESSION['username'] ?></strong></li>
             <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/logout/">Logout</a></li>
           <?php else: ?>
             <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/people/">People</a></li>
             <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/locations/">Locations</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/add_person/">Add Person</a></li>
             <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/login/">Login</a></li>
           <?php endif; ?>
         </ul>

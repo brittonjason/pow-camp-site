@@ -105,8 +105,7 @@ class Index{
 		include_once SYSTEM_PATH.'/view/footer.tpl';
 	}
 	
-	public function loginSubmit($un, $pw){
-		
+	public function loginSubmit($un, $pw){		
 		// TODO correct username/password
 		$correctUsername = 'Joseph';
 		$correctPassword = 'Joestar';
@@ -121,7 +120,7 @@ class Index{
 		else {
 			$_SESSION['username'] = $un;
 			// Moves to dashboard page
-			header('Location: '.BASE_URL.'/login_success');
+			header('Location: '.BASE_URL);
 		}
 	}
 	
@@ -143,12 +142,15 @@ class Index{
 	
 	public function add_person(){
 		// can not add if not logged in
-		if(!isset($_SESSION['username'])){
-			header('Location: '.BASE_URL);
-		}
+		// TODO uncomment this
+		// if(!isset($_SESSION['username'])){
+		// 	header('Location: '.BASE_URL);
+		// }
 		
 		$pageTitle = "Add New Person";
-		// TODO post template here
+		include_once SYSTEM_PATH.'/view/header.tpl';
+		include_once SYSTEM_PATH.'/view/add_person.tpl';
+		include_once SYSTEM_PATH.'/view/footer.tpl';
 	}
 	
 	public function confirm_person(){
@@ -230,17 +232,17 @@ class Index{
 		$name = ucwords(str_replace("_", " ", $name));
 		$pageTitle = $name;
 		
-		// TODO add header templates
+		include_once SYSTEM_PATH.'/view/header.tpl';
 		
 		// check if valid, and post
 		$person = Person::p_loadByName($name);
 		if($person != null) {
-			// TODO add content template
+			include_once SYSTEM_PATH.'/view/person.tpl';
 		} else {
 			die('Invalid name');
 		}
 		
-		//  TODO add footer template
+		include_once SYSTEM_PATH.'/view/header.tpl';
 	}
 	
 	public function edit_person($name){
@@ -374,15 +376,13 @@ class Index{
 	public function list_people(){
 		$pageTitle = "People";
 		
-		include_once SYSTEM_PATH.'/view/header.tpl';
-		include_once SYSTEM_PATH.'/view/people.tpl';
-		include_once SYSTEM_PATH.'/view/footer.tpl';
+		include_once SYSTEM_PATH.'/view/header.tpl';	
 
 		// get list of all persons and display 
-		$list = Person::getPersons();
-		// TODO add content template
+		$list = Person::getPeople();
 		
-		//  TODO add footer template
+		include_once SYSTEM_PATH.'/view/people.tpl';
+		include_once SYSTEM_PATH.'/view/footer.tpl';
 		
 	}
 	
