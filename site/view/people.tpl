@@ -8,10 +8,6 @@
       <div class="container">
         <h1 class="jumbotron-heading">POWs</h1>
         <p class="lead text-muted">Records of POWs who were put into Camp Aliceville.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
       </div>
     </section>
 
@@ -32,7 +28,6 @@
                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="<?= BASE_URL ?>/people/<?= $nm ?>">View</a></button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </div>
-                  <small class="text-muted">9 mins</small>
                 </div>
               </div>
             </div>
